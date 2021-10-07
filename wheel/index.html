@@ -81,16 +81,14 @@
       }
       
       function result() {
-        //const config = { attributes: true };
+        const config = { attributes: true, childList: true, characterData: true };
         const callback = function(mutationsList, observer) {
           for(const mutation of mutationsList) {
-            if (mutation.type === "attributes") {
-                console.log("the " + mutation.attributeName + " attribute was modified");
-            }
+            console.log("type: " + mutation.type + "; name: " + mutation.attributeName);
           }
         }
         const observer = new MutationObserver(callback);
-        observer.observe(EL_spin);
+        observer.observe(EL_spin, config);
       }
 
       // INIT
