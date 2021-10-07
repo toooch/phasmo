@@ -84,7 +84,7 @@
         const config = { attributes: true };
         const callback = function(mutationsList, observer) {
           for(const mutation of mutationsList) {
-            if (mutation.type === "attributes) {
+            if (mutation.type === "attributes") {
                 console.log("the " + mutation.attributeName + " attribute was modified");
             }
           }
