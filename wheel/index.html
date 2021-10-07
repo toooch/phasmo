@@ -81,6 +81,7 @@
       }
       
       function result() {
+        const config = { attributes: true };
         const callback = function(mutationsList, observer) {
           for(const mutation of mutationsList) {
             if (mutation.type === "attributes) {
