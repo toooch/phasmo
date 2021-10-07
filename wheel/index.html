@@ -79,14 +79,26 @@
         frame();
         requestAnimationFrame(engine)
       }
+      
+      function result() {
+        const callback = function(mutationsList, observer) {
+          for(const mutation of mutationsList) {
+            if (mutation.type === "attributes) {
+                console.log("the " + mutation.attributeName + " attribute was modified");
+            }
+          }
+        }
+        const observer = new MutationObserver(callback);
+        observer.observe(EL_spin);
+      }
 
       // INIT
       sectors.forEach(drawSector);
+      result();
       rotate(); // Initial rotation
       engine(); // Start engine
       EL_spin.addEventListener("click", () => {
         angVel = rand(0.25, 0.35);
-        EL_res.textContent = sector.label;
       });
     </script>
     
