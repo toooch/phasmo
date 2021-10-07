@@ -7,6 +7,7 @@
     <div id="wheelOfFortune">
       <canvas id="wheel" width="300" height="300"></canvas>
       <div id="spin">SPIN</div>
+      <p1 id="res">none</p1>
     </div>
     
     <script>
@@ -23,6 +24,7 @@
       const rand = (m, M) => Math.random() * (M - m) + m;
       const tot = sectors.length;
       const EL_spin = document.querySelector("#spin");
+      const EL_res = document.querySelector("#res");
       const ctx = document.querySelector("#wheel").getContext('2d');
       const dia = ctx.canvas.width;
       const rad = dia / 2;
@@ -61,6 +63,7 @@
         const sector = sectors[getIndex()];
         ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
         EL_spin.textContent = !angVel ? "SPIN" : sector.label;
+        EL_res.textContent = sector.label;
         EL_spin.style.background = sector.color;
       }
 
