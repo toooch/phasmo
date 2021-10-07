@@ -81,7 +81,7 @@
       }
       
       function result() {
-        const config = { attributes: true };
+        //const config = { attributes: true };
         const callback = function(mutationsList, observer) {
           for(const mutation of mutationsList) {
             if (mutation.type === "attributes") {
@@ -90,7 +90,7 @@
           }
         }
         const observer = new MutationObserver(callback);
-        observer.observe(EL_spin, config);
+        observer.observe(EL_spin);
       }
 
       // INIT
